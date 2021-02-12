@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+<style>
+    #one{
+        border: 2px black;
+        box-sizing:inherit;
+        width:fit-content;
+        padding: 20px;
+        background-color: rgb(151, 108, 52);
+    }
+    .menu{
+            padding: 10px;
+            display: none;
+
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    <div id="one">Hover to see the dropdown menu</div>
+    <div class="menu">Shimla</div>
+    <div class="menu">Leh</div>
+    <div class="menu">Kedarnath</div>
+    <div class="menu">Jammu and Kashmir</div>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#one").hover(function(){
+                    $(".menu").fadeToggle("slow");
+                 });
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    <div id="main">
+        <p class="target">This is a paragraph</p>
+    </div>
+    <br>
+    <div class="notchan">
+        <p class="target">This is another paragraph</p>
+    </div>
+    <br>
+    <br>
+    <button>change the font</button>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("button").click( function()
+                { 
+                    $(".target").parent("#main").css('font-size', '150%');
+                });
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

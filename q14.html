@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<style>
+    
+
+        th, td {
+            padding: 6px;
+            
+        }
+</style>
+</head>
+<body>
+
+<table>
+   <strong>Table</strong>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th class="poin">Points</th>
+  </tr>
+  <tr>
+    <td>gaurav</td>
+    <td>Chhonkar</td>
+    <td class="poin">6</td>
+  </tr>
+  <tr>
+    <td>Amit</td>
+    <td>Chaudhary</td>
+    <td class="poin">15</td>
+  </tr>
+  <tr>
+    <td>Ankit</td>
+    <td>Chhonkar</td>
+    <td class="poin">11</td>
+  </tr>
+  <tr>
+    <td>Avinash</td>
+    <td>Chhonkar</td>
+    <td class="poin">9</td>
+  </tr>
+</table>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('.poin').each(function(i, n) {
+                    if($(n).text() > 10) 
+                        $(n).css('color', 'blues').css('background-color','pink');
+                    });
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

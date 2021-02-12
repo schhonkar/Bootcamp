@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    
+        <div >this is in div tag</div>
+        <br>
+        <button>change the content</button>
+        <br>
+        <p id = "target">This is a paragraph in p tag</p>
+
+       
+    
+
+    <script>
+            $(document).ready(function()
+            {
+                $("button").click(function() {
+			
+			$("div").replaceWith($("#target"));
+		});
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

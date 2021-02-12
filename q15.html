@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+        <h2>To get the data click</h2>
+        <button type="button">click</button>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $.ajax({url:"data.txt",async:'true',dataType:'text',type:'GET',success:function(result) {
+                        setTimeout(function(){
+                            console.log(result);
+                            
+                        });
+                        
+                                
+                    },error:function(){
+                        console.log("error")
+                    }});
+                    console.log("outside ajax");
+                
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>
+

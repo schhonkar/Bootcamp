@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    <h2>Select where you wanna travel this year</h2>
+    <br>
+    <select>
+        <option value="">Places</option>
+        <option value="Shimla">Shimla
+        <option value="Leh">Leh
+        <option value="Goa">Goa
+        <option value="Kanyakumari">Kanyakumari
+        <option value="Jammu and Kashmir">Jammu and Kashmir
+      </select>
+      <p>These are the places you wanna go</p>
+      <p id="places"></p>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('select').on('change', function() {
+                    $("#places").append(this.value+" <br>")
+                });
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

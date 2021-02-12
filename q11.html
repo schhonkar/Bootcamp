@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+ 
+    <h2>Google will not open</h2>
+    <a id="link" href="https://www.google.com/">google.com</a>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('#link').click(function (link) {
+                    link.preventDefault();
+                    alert('Access Denied');
+    
+                });
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>
+
+
+

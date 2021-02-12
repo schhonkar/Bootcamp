@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    <div id="main">
+        This is question 8
+        </div>
+       <br> 
+    <button>click</button>
+    <p></p>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $(document).ready(function() {
+                    $("button").click(function() {
+                         $("p").append("<p>click me</p>")
+                            $("p").on("click",function(){
+                                $("p").append("<p>click me</p>") 
+                            });
+                    });
+          
+                });
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

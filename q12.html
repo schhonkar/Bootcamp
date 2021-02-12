@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+<style>
+
+    .main{
+        width: 500px;
+        height: 300px;
+        background-color: lightblue;
+    }
+    div ul li{
+        background-color: lightcoral;
+        display: inline;    
+    }
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+ 
+    
+    <div class="main">
+    
+        <ul>
+        <li>inside div</li>
+        <li>inside div2</li>
+        <li>inside div3</li>
+      
+        </ul>
+     </div>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $('.main').on('click', function () { alert('This is div tag'); }).children().on('click', function (child) {
+                    child.stopPropagation();          
+                });
+            });
+        </script>
+ 
+</body>
+</html>
+</html>

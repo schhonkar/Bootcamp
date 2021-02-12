@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+ 
+</head>
+<body>
+ 
+    <div id="main">
+        Add the click text
+        </div>
+        
+    <button>Append the change</button>
+    <br>
+    <p class="target"></p>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("button").click( function()
+                { 
+                    $(".target").append("click <br>")
+		            });
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>

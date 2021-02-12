@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JQuery</title>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+ 
+    <div class="main">
+        <p>hello</p>
+        <p>hi</p>    
+        </div>
+         <br>
+         <div class="main">
+            <p>hello</p>
+            <p>hi</p>    
+            </div>
+             <br>
+             <div class="main">
+                <p>hello</p>
+                <p>hi</p>
+                <p>saurabh</p>    
+                </div>
+                 <br>
+    <script type="text/javascript">
+            $(document).ready(function()
+            {
+                var height = null;
+                        var hig = 0;
+                    $(".main").each(function()
+                    {
+                        var h = $(this).height();
+                        
+                            if(h > hig){
+                                hig = h;
+                                height=$(this);
+                                    }         
+                    });
+                        alert('max height '+hig); 
+                        $(height).css("color","blue"); 
+          
+            });
+        
+        </script>
+ 
+</body>
+</html>
+</html>
+

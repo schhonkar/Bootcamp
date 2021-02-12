@@ -1,0 +1,39 @@
+<html lang="en">
+    <head>
+        <title>Jquery</title>
+   <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        </head>
+   <body>
+
+ <div id="main"><h2>Press the button to delete it</h2></div>
+ <br>
+       <button type="button">Cross Button</button>
+        <br>
+        <p></p>
+<script>
+    $(document).ready(function()
+{
+
+        console.log("hello");
+
+        $("button").click(function()
+       {
+      
+            $.ajax({url:"data.txt",async:'true',dataType:'text',type:'GET',success:function(result) {
+                setTimeout(function(){  
+                     $('button').remove();
+
+                      $('p').append('</br>button removed');
+                });
+                
+                        
+            },error:function(){
+                
+            }});
+            
+            
+        });
+    });
+    
+</script>
