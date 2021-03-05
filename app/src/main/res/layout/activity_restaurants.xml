@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Restaurants"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="match_parent"
+        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img2"/>
+    <TextView
+        android:id="@+id/textIceCream"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ice Cream Sundae"
+        android:layout_below="@+id/image1"
+        android:layout_marginTop="10dp"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="147, Mall of India"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/textIceCream"
+        android:textSize="15dp"
+        android:textStyle="bold"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textAddress"
+        android:layout_marginTop="-3dp"
+        android:isIndicator="false"
+        android:rating="3.5"
+        android:theme="@style/RatingBar" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="576 views"
+        android:textSize="12dp"
+        android:layout_toRightOf="@+id/ratingBar"
+        android:layout_below="@+id/textAddress"/>
+
+</RelativeLayout>

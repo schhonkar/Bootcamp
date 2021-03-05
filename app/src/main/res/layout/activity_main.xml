@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/logButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login Page"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/secButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Relative Layout"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/thiButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Constraint Layout"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout Part-1"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/layButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Recycler Layout"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Layout Part-2"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+    <Button
+        android:id="@+id/pagbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MultiViews and Pagging"
+        android:layout_margin="20dp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

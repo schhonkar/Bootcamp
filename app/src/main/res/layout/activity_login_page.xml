@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginPage"
+    android:background="@drawable/resource_loginpage"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Foodie App"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="100dp"
+        android:textColor="@color/white"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="10mm"
+        android:hint="Username"
+        android:background="@drawable/text_background"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="10mm"
+        android:hint="Password"
+        android:background="@drawable/text_background"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:inputType="textPassword"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remember me"
+        android:layout_marginLeft="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forget Password?"
+        android:gravity="center"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="10mm"
+        android:text="Sign in"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:bottomRightRadius="10dp"
+        android:bottomLeftRadius="10dp"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp"
+
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Don't have a account?"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:layout_margin="20dp"
+        android:gravity="center"/>
+
+</LinearLayout>
