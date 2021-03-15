@@ -15,14 +15,14 @@ import java.util.concurrent.Executors
 
 
 class RoomDataBase : AppCompatActivity(),RoomRecyclerAdapter.OnItemClickListner{
-    var itemadapter:RoomRecyclerAdapter? = null
+    private var itemadapter:RoomRecyclerAdapter? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sql_lite)
         addbutton.setOnClickListener {
             addData()
+            setRoomRecyclerView()
         }
-
           setRoomRecyclerView()
     }
 
@@ -70,45 +70,45 @@ class RoomDataBase : AppCompatActivity(),RoomRecyclerAdapter.OnItemClickListner{
 
     }
     override fun onClickUpdate(position: Int, name: String, address: String, number: String) {
-        val updateDialog = Dialog(this,R.style.Theme_Dialog)
-        updateDialog.setCancelable(false)
-        updateDialog.setContentView(R.layout.updatedialog)
-        updateDialog.etUpdateName.setText(name)
-        updateDialog.etUpdateNumber.setText(number)
-        updateDialog.etUpdateAddress.setText(address)
-        val database = RoomDatabaseBuilder().getInstance(this)
-        updateDialog.tvUpdate.setOnClickListener(View.OnClickListener {
-            val name = updateDialog.etUpdateName.text.toString()
-            val number = updateDialog.etUpdateNumber.text.toString()
-            val address = updateDialog.etUpdateAddress.text.toString()
-
-            val database = RoomDatabaseBuilder().getInstance(this)
-            if (name.isNotEmpty() && number.isNotEmpty() && address.isNotEmpty()) {
-                Executors.newSingleThreadExecutor().execute{
-                    database.empDao().updatePerson(EmployeeDatabase(position,name,address,number))
-                }
-                setRoomRecyclerView()
-                updateDialog.dismiss()
-
-            }
-            else{
-                Toast.makeText(applicationContext,"Fields can't be blanck",Toast.LENGTH_SHORT).show()
-            }
-        })
-        updateDialog.tvCancel.setOnClickListener {
-            updateDialog.dismiss()
-        }
-        updateDialog.show()
+//        val updateDialog = Dialog(this,R.style.Theme_Dialog)
+//        updateDialog.setCancelable(false)
+//        updateDialog.setContentView(R.layout.updatedialog)
+//        updateDialog.etUpdateName.setText(name)
+//        updateDialog.etUpdateNumber.setText(number)
+//        updateDialog.etUpdateAddress.setText(address)
+//        val database = RoomDatabaseBuilder().getInstance(this)
+//        updateDialog.tvUpdate.setOnClickListener(View.OnClickListener {
+//            val name = updateDialog.etUpdateName.text.toString()
+//            val number = updateDialog.etUpdateNumber.text.toString()
+//            val address = updateDialog.etUpdateAddress.text.toString()
+//
+//            val database = RoomDatabaseBuilder().getInstance(this)
+//            if (name.isNotEmpty() && number.isNotEmpty() && address.isNotEmpty()) {
+//                Executors.newSingleThreadExecutor().execute{
+//                    database.empDao().updatePerson(EmployeeDatabase(position,name,address,number))
+//                }
+//                updateDialog.dismiss()
+//
+//            }
+//            else{
+//                Toast.makeText(applicationContext,"Fields can't be blanck",Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//        updateDialog.tvCancel.setOnClickListener {
+//            updateDialog.dismiss()
+//        }
+//        updateDialog.show()
     }
 
 
     override fun onClickDelete(position: Int) {
-        val database = RoomDatabaseBuilder().getInstance(this)
-        Executors.newSingleThreadExecutor().execute{
-            database.empDao().deletePerson(EmployeeDatabase(id=position))
-        }
-        setRoomRecyclerView()
-        Log.e("RoomDataBase","Delete clicked")
+//        val database = RoomDatabaseBuilder().getInstance(this)
+//        Executors.newSingleThreadExecutor().execute{
+//            database.empDao().deletePerson(EmployeeDatabase(id=position))
+//            var employeeList: List<EmployeeDatabase> = database.empDao().getAllPerson()
+//            runOnUiThread { itemadapter?.updateTasks(position, employeeList) }
+//        }
+
     }
 
 }
