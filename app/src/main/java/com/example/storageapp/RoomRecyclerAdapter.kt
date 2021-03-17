@@ -38,15 +38,16 @@ class RoomRecyclerAdapter(val context:Context,val list:ArrayList<EmployeeDatabas
         holder.number.text = items.number
         holder.address.text = items.address
         holder.update.setOnClickListener {
-//            mylistner?.onClickUpdate(position,holder.name.text.toString(),holder.number.text.toString(),holder.address.text.toString())
+//           mylistner?.onClickUpdate(position,holder.name.text.toString(),holder.number.text.toString(),holder.address.text.toString())
             Log.e("BindView","update clicked")
             update(position,holder.name.text.toString(),holder.address.text.toString(),holder.number.text.toString(),items.id)
+            notifyDataSetChanged()
         }
         holder.delete.setOnClickListener {
-//            mylistner?.onClickDelete(items.id)
-            delete(items.id,position,holder.name.text.toString())
+//            mylistner?.onClickDelete(position,items.id)
+           delete(items.id,position,holder.name.text.toString())
             Log.e("BindView","Delete clicked ${items.id}")
-//            notifyDataSetChanged()
+            notifyDataSetChanged()
         }
     }
 
@@ -83,7 +84,7 @@ class RoomRecyclerAdapter(val context:Context,val list:ArrayList<EmployeeDatabas
     }
 
     interface OnItemClickListner{
-        fun onClickDelete(position:Int)
+        fun onClickDelete(position:Int,id: Int)
         fun onClickUpdate(position: Int,name:String,address:String,number:String)
     }
 
@@ -136,7 +137,7 @@ class RoomRecyclerAdapter(val context:Context,val list:ArrayList<EmployeeDatabas
                     database.empDao().updatePerson(EmployeeDatabase(id = id,name=name,address=address,number=number))
                     list1 = database.empDao().getAllPerson()
                 }
-                Toast.makeText(context,"Updated successfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Updated successfully Open again to see the results",Toast.LENGTH_SHORT).show()
                 notifyDataSetChanged()
                 list1?.let { it1 -> updateTasks(position, it1) }
                 updateDialog.dismiss()

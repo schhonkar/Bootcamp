@@ -70,7 +70,7 @@ class DataBaseHandler(context:Context):SQLiteOpenHelper(context,DATABASE_NAME,nu
                 name = curser.getString(curser.getColumnIndex(KEY_NAME))
                 number = curser.getString(curser.getColumnIndex(KEY_NUMBER))
                 address = curser.getString(curser.getColumnIndex(KEY_ADDRESS))
-                val emp = Model(id = id, name = name, number = number,address = address)
+                val emp = Model(id= id,name = name, address = address, number = number)
                 emplist.add(emp)
             }while (curser.moveToNext())
         }

@@ -32,5 +32,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,SharedPref2::class.java)
             startActivity(intent)
         }
+        loadContacts.setOnClickListener {
+            val intent = Intent(this,SqlLite::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -1,10 +1,12 @@
 package com.example.storageapp
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -101,15 +103,31 @@ class RoomDataBase : AppCompatActivity(),RoomRecyclerAdapter.OnItemClickListner{
     }
 
 
-    override fun onClickDelete(position: Int) {
-//        val database = RoomDatabaseBuilder().getInstance(this)
-//        Executors.newSingleThreadExecutor().execute{
-//            database.empDao().deletePerson(EmployeeDatabase(id=position))
-//            var employeeList: List<EmployeeDatabase> = database.empDao().getAllPerson()
-//            runOnUiThread { itemadapter?.updateTasks(position, employeeList) }
+    override fun onClickDelete(position: Int,id:Int) {
+//       val builder = AlertDialog.Builder(this)
+//        builder.setTitle("Delete Record")
+//        builder.setMessage("are you sure you want to delete.")
+//        builder.setIcon(android.R.drawable.ic_dialog_alert)
+//        builder.setPositiveButton("Yes"){ dialogInterface: DialogInterface, which ->
+//            val database = RoomDatabaseBuilder().getInstance(this)
+//            Executors.newSingleThreadExecutor().execute{
+//                database.empDao().deletePerson(EmployeeDatabase(id=id))
+//            }
+//            Toast.makeText(this,"Deleted successfully",Toast.LENGTH_SHORT).show()
+////            deleteItem(position)
+//            dialogInterface.dismiss()
+//
 //        }
+//        builder.setNegativeButton("No"){ dialogInterface: DialogInterface, which ->
+//            dialogInterface.dismiss()
+//
+//        }
+//        val alerDialog = builder.create()
+//        alerDialog.setCancelable(false)
+//        alerDialog.show()
 
-    }
+  }
+
 
 }
 

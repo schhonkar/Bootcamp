@@ -1,10 +1,14 @@
 package com.example.storageapp
 
+import android.Manifest
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_sql_lite.*
 import kotlinx.android.synthetic.main.updatedialog.*
 
 class SqlLite : AppCompatActivity() {
+    val PERMISSIONS_REQUEST_READ_CONTACTS = 101
+    val contactHashMap = HashMap<String, String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sql_lite)
@@ -21,6 +27,10 @@ class SqlLite : AppCompatActivity() {
             setRecyclerView()
         }
         setRecyclerView()
+        loadContent.setOnClickListener {
+            loadContacts()
+            setRecyclerView()
+        }
     }
 
     private fun addRecord(){
@@ -29,7 +39,7 @@ class SqlLite : AppCompatActivity() {
         val address = addressTextView.text.toString()
         val databaseHandler:DataBaseHandler =   DataBaseHandler(this)
         if(name.isNotEmpty() && address.isNotEmpty() && number.isNotEmpty()){
-            val status = databaseHandler.addEmployee(Model(0,name,address,number))
+            val status = databaseHandler.addEmployee(Model(0,name, address, number))
             if (status > -1){
                 Toast.makeText(applicationContext,"Data Saved",Toast.LENGTH_SHORT).show()
                 nameTextView.setText("")
@@ -38,7 +48,7 @@ class SqlLite : AppCompatActivity() {
             }
         }
         else{
-            Toast.makeText(applicationContext,"Please inser in all the fields",Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext,"Please insert in all the fields",Toast.LENGTH_SHORT).show()
         }
     }
     private fun getItemList():ArrayList<Model>{
@@ -71,7 +81,7 @@ class SqlLite : AppCompatActivity() {
 
             val databasehandler = DataBaseHandler(this)
             if (name.isNotEmpty() && number.isNotEmpty() && address.isNotEmpty()){
-                val status = databasehandler.updateEmployee(Model(emp.id,name,number,address))
+                val status = databasehandler.updateEmployee(Model(emp.id,name, number, address))
                 if(status > -1){
                     Toast.makeText(applicationContext,"Data updated",Toast.LENGTH_SHORT).show()
                     setRecyclerView()
@@ -96,7 +106,7 @@ class SqlLite : AppCompatActivity() {
         builder.setPositiveButton("Yes"){ dialogInterface: DialogInterface, which ->
             val databasehandler = DataBaseHandler(this)
 
-            val status = databasehandler.deleteEmployee(Model(emp.id,"","",""))
+            val status = databasehandler.deleteEmployee(Model(emp.id,"", "", ""))
 
             if (status > -1){
                 Toast.makeText(applicationContext,"Record Deleted",Toast.LENGTH_SHORT).show()
@@ -114,5 +124,88 @@ class SqlLite : AppCompatActivity() {
         alerDialog.show()
 
     }
+    private fun loadContacts() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(
+                Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS),
+                PERMISSIONS_REQUEST_READ_CONTACTS)
+            //callback onRequestPermissionsResult
+        } else {
+            val contactHM = getContacts()
+            if (contactHM.size > 0) {
+                for (contact in contactHM) {
+                    insertDataInSQLite(contact.key, contact.value)
+                }
+                Toast.makeText(this, "${contactHM.size} contact has been added successfully", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray)
+    {
+        if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                loadContacts()
+            } else {
+                Toast.makeText(this, "Allow the permission from settings", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun getContacts(): HashMap<String, String> {
+        val resolver = contentResolver
+        val cursor =
+            resolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
+        if (cursor!!.count > 0) {
+            while (cursor.moveToNext()) {
+                val id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
+                val name =
+                    cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                val phoneNumber =
+                    cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))
+                        .toInt()
+
+                if (phoneNumber > 0) {
+                    val cursorPhone = contentResolver.query(
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        null,
+                        ContactsContract.CommonDataKinds.Phone._ID + "=?",
+                        arrayOf(id),
+                        null
+                    )
+
+                    if (cursorPhone!!.count > 0) {
+                        while (cursorPhone.moveToNext()) {
+                            val phoneNumValue = cursorPhone.getString(
+                                cursorPhone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                            //Log.i(TAG, "Contact: $name, $phoneNumValue")
+                            contactHashMap[phoneNumValue] = name
+                        }
+                    }
+                    cursorPhone.close()
+                }
+            }
+        }
+        else {
+            Toast.makeText(this, "No contacts available", Toast.LENGTH_SHORT).show()
+        }
+        cursor.close()
+        return contactHashMap
+    }
+    private fun insertDataInSQLite(key: String, value: String) {
+
+        val databaseManager = DataBaseHandler(this)
+
+
+        databaseManager.addEmployee(
+            Model(
+//                id = 0,
+                name = value,
+                number = key,
+                address = "UP"
+            )
+        )
+    }
+
 
 }
