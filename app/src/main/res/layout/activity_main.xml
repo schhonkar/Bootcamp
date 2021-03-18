@@ -89,6 +89,21 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             />
+
     </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Work Manager Demo"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <Button
+    android:id="@+id/workStatus"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="WorkStatus"
+    android:layout_margin="10dp"
+    />
+
 
 </LinearLayout>

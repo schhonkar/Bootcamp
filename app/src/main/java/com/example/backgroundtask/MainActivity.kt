@@ -10,6 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.IBinder
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.work.Constraints
+import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +44,21 @@ class MainActivity : AppCompatActivity() {
         cancelJob.setOnClickListener {
             cancelJob()
         }
+
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.METERED)
+            .setRequiresCharging(true)
+            .build()
+
+        val request = OneTimeWorkRequestBuilder<DemoWorkManager>().setConstraints(constraints).build()
+        workStatus.setOnClickListener {
+            WorkManager.getInstance(this).enqueue(request)
+        }
+        WorkManager.getInstance(this).getWorkInfoByIdLiveData(request.id)
+            .observe(this, Observer {
+                val status = it.state.name
+                Toast.makeText(this, "$status", Toast.LENGTH_SHORT).show()
+            })
     }
 
     private fun thread() {

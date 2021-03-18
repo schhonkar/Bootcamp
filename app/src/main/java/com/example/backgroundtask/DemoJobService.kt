@@ -17,10 +17,10 @@ class DemoJobService:JobService() {
         Thread(Runnable {
             kotlin.run {
                 for (i in 0..10) {
-                    Log.e(Tag, "run: "+i)
                     if (jobCancelled) {
                         return@Runnable
                     }
+                    Log.e(Tag, "run: "+i)
                     try {
                         Thread.sleep(1000)
                     } catch (e: InterruptedException) {
@@ -39,5 +39,6 @@ class DemoJobService:JobService() {
         Log.e(Tag,"Job Cancelled")
         jobCancelled = true
         return true
+
     }
 }
