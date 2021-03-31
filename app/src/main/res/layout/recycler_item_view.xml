@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<layout>-->
+<!--    <data>-->
+<!--        <variable-->
+<!--            name="employee"-->
+<!--            type="com.example.jetpack.Q1.Database.EmployeeData" />-->
+<!--    </data>-->
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:elevation="5dp"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="6dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/rvNameView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:textAllCaps="true"
+                android:layout_margin="15dp"
+                />
+
+            <TextView
+                android:id="@+id/rvEmailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+
+                />
+            <TextView
+                android:id="@+id/rvNumberView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+<!--</layout>-->
