@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Q1.Fragment.AddEmployeeFragment">
+    tools:context=".q1.Fragment.AddEmployeeFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout

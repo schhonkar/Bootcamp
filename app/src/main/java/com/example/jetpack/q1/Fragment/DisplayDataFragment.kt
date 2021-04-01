@@ -1,6 +1,5 @@
-package com.example.jetpack.Q1.Fragment
+package com.example.jetpack.q1.Fragment
 
-import android.os.Build.VERSION_CODES.O
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.jetpack.Q1.Adapter.EmployeeAdopter
-import com.example.jetpack.Q1.Database.EmployeeData
-import com.example.jetpack.Q1.VewModel.EmployeeViewModel
+import com.example.jetpack.q1.Adapter.EmployeeAdopter
+import com.example.jetpack.q1.EmployeeData
+import com.example.jetpack.q1.VewModel.EmployeeViewModel
 import com.example.jetpack.R
 import kotlinx.android.synthetic.main.fragment_display_data.*
 

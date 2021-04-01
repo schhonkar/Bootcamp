@@ -1,9 +1,8 @@
-package com.example.jetpack.Q1.Dao
+package com.example.jetpack.q1.Dao
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.*
-import com.example.jetpack.Q1.Database.EmployeeData
+import com.example.jetpack.q1.EmployeeData
 
 
 @Dao

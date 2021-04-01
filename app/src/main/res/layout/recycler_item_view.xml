@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<layout>-->
-<!--    <data>-->
-<!--        <variable-->
-<!--            name="employee"-->
-<!--            type="com.example.jetpack.Q1.Database.EmployeeData" />-->
-<!--    </data>-->
+<layout>
+    <data>
+        <variable
+            name="employee"
+            type="com.example.jetpack.q1.EmployeeData" />
+    </data>
     <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,15 +24,7 @@
                 android:textSize="15dp"
                 android:textAllCaps="true"
                 android:layout_margin="15dp"
-                />
-
-            <TextView
-                android:id="@+id/rvEmailView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginBottom="15dp"
-
+                android:text="@{employee.name}"
                 />
             <TextView
                 android:id="@+id/rvNumberView"
@@ -40,10 +32,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="15dp"
+                android:text="@{employee.number}"
+                />
+            <TextView
+                android:id="@+id/rvEmailView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="@{employee.email}"
 
                 />
+
+
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-<!--</layout>-->
+</layout>

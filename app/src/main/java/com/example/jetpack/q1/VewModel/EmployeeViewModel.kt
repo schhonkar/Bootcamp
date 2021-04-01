@@ -1,13 +1,11 @@
-package com.example.jetpack.Q1.VewModel
+package com.example.jetpack.q1.VewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.example.jetpack.Q1.Database.DatabaseBuilder
-import com.example.jetpack.Q1.Database.EmployeeData
-import com.example.jetpack.Q1.Database.EmployeeRoomDatabase
+import com.example.jetpack.q1.Database.DatabaseBuilder
+import com.example.jetpack.q1.EmployeeData
 import java.util.concurrent.Executors
 
 class EmployeeViewModel(application: Application):AndroidViewModel(application) {
@@ -20,7 +18,7 @@ class EmployeeViewModel(application: Application):AndroidViewModel(application) 
         return roomDatabaseBuilder.empDao().getAllData()
     }
 
-    fun addDataEmployee(data:EmployeeData){
+    fun addDataEmployee(data: EmployeeData){
         Executors.newSingleThreadExecutor().execute {
             roomDatabaseBuilder.empDao().insertData(
                 EmployeeData(

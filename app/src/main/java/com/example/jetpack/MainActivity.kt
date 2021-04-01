@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.jetpack.Q1.RoomMainActivity
+import com.example.jetpack.q1.RoomMainActivity
 import com.example.jetpack.Q2.ColorMainActivity
 
 class MainActivity : AppCompatActivity() {

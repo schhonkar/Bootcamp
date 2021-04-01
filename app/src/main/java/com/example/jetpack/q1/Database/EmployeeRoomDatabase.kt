@@ -1,10 +1,9 @@
-package com.example.jetpack.Q1.Database
+package com.example.jetpack.q1.Database
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.jetpack.Q1.Dao.EmployeeDao
+import com.example.jetpack.q1.Dao.EmployeeDao
+import com.example.jetpack.q1.EmployeeData
 
 
 @Database(entities = arrayOf(EmployeeData::class),version = 1)

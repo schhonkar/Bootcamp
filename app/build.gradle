@@ -52,12 +52,12 @@ dependencies {
 
     //Added Libraries
     def lifecycle_version = "2.3.0"
-    // Kotlin LiveData
+    //LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    // Kotlin ViewModel
+    //ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
-    // Room DB
+    // Room
     def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
