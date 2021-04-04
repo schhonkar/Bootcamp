@@ -3,6 +3,7 @@ package com.example.architecture
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.architecture.coroutine.CoroutineMainActivity
 import com.example.architecture.mvm.view.MvmMainActivity
 import com.example.architecture.mvvm.MvvmMainActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -17,6 +18,10 @@ class MainActivity : AppCompatActivity() {
         }
         mvvmActivity.setOnClickListener {
             val intent = Intent(this, MvvmMainActivity::class.java)
+            startActivity(intent)
+        }
+        coroutine.setOnClickListener {
+            val intent = Intent(this, CoroutineMainActivity::class.java)
             startActivity(intent)
         }
     }
