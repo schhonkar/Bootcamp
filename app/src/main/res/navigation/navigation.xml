@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.navigation.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login"
+        >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.navigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_updateDialogFragment2"
+            app:destination="@id/updateDialogFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.navigation.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account">
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="myapp://navigation.com/account"
+            app:action="ACTION_VIEW"/>
+    </fragment>
+    <dialog
+        android:id="@+id/updateDialogFragment2"
+        android:name="com.example.navigation.UpdateDialogFragment"
+        android:label="UpdateDialogFragment" >
+        <action
+            android:id="@+id/action_updateDialogFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="dialogfragmentTitle"
+            app:argType="string"
+            android:defaultValue="Hello!"
+            />
+    </dialog>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/navigation" />
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.navigation.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/splashFragment"/>
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+
+</navigation>
