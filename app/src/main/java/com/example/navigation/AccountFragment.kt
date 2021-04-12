@@ -30,6 +30,18 @@ class AccountFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         checkDataIsSaved()
+        //To logout
+
+        accountLogoutButton.setOnClickListener {
+            if (checkString()){
+                val pref =  activity?.getSharedPreferences(MainActivity.MY_PREFERENCES, Context.MODE_PRIVATE)
+                val editor = pref?.edit()
+                editor?.remove(MainActivity.KEY)
+                editor?.commit()
+                accountNameTextView.text = ""
+                Toast.makeText(activity,"Data removed successfully",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun checkDataIsSaved(){
@@ -46,7 +58,7 @@ class AccountFragment : Fragment() {
     private fun checkString():Boolean{
         val sharedPreferences = activity?.getSharedPreferences(MainActivity.MY_PREFERENCES, Context.MODE_PRIVATE)
         val name =  sharedPreferences?.getString(MainActivity.KEY, null)
-        Log.e("Splash","$name")
+//        Log.e("Splash","$name")
         return name != null
     }
     private fun getData():String{

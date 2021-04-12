@@ -26,5 +26,11 @@
         android:textSize="30sp"
         android:textStyle="italic"
        />
+    <Button
+        android:id="@+id/accountLogoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:text="Logout"/>
 
 </LinearLayout>
