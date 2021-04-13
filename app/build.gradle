@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
+    //performence
+    id 'com.google.firebase.firebase-perf'
 }
 
 //for Firebase
@@ -69,4 +71,8 @@ dependencies {
 
     //Cloud Messaging
     implementation 'com.google.firebase:firebase-messaging-ktx'
+
+
+    //Performance monitering
+    implementation 'com.google.firebase:firebase-perf'
 }

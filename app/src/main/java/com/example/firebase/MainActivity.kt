@@ -7,14 +7,29 @@ import android.widget.Button
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.perf.FirebasePerformance
+import com.google.firebase.perf.metrics.AddTrace
 
 class MainActivity : AppCompatActivity() {
 
+
+    /**
+     * For performance testing
+     */
+    val myTrace= FirebasePerformance.getInstance().newTrace("testTrace")
+
+
     private lateinit var firebaseAnalytics: FirebaseAnalytics
+
+    @AddTrace(name = "OnCreateTrace")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         firebaseAnalytics = Firebase.analytics
+
+        //Performance testing
+        myFunction()
+
 
 
         /**
@@ -75,4 +90,16 @@ class MainActivity : AppCompatActivity() {
 //        private fun setUserId(){
 //        firebaseAnalytics.setUserId("101")
 //    }
+
+    /**
+     * Performance testing
+     */
+    private fun myFunction() {
+        myTrace.start()
+
+        myTrace.incrementMetric("hit",1)
+
+
+        myTrace.stop()
+    }
 }
