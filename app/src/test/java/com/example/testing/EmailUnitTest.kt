@@ -34,6 +34,13 @@ class EmailUnitTest {
         Assert.assertFalse(emailIsCorrect)
     }
 
+//    @Test
+//    fun testEmailAddressNotContainingCapitalLetters_isCorrect(){
+//        val emailAddress = "Saurabhchhonkar@gmail.com"
+//        val emailIsCorrect = MainActivity().isEmailValid(emailAddress)
+//        Assert.assertTrue(emailIsCorrect)
+//    }
+
 
 
 }
